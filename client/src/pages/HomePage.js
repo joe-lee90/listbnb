@@ -7,13 +7,14 @@ function HomePage() {
   const [listings, setListings] = useState([]) 
 
   useEffect(() => {
-    fetch('/listings')
+    fetch('http://localhost:4000/listing')
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => setListings(data))
   }, [])
 
+  console.log(listings)
   let renderListings = listings.map((listing) => {
-    return <ListingCard />
+    return <ListingCard key={listing.id} listing={listing}/>
   })
 
   return (
