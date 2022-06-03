@@ -55,3 +55,10 @@ r4 = Review.create(user_id: nick.id, listing_id: l3.id, description: "Cozy house
 
                     
 puts "✅ Done seeding!"
+
+
+# Minas Tirith
+# Gondor
+# https://c4.wallpaperflare.com/wallpaper/241/251/757/the-lord-of-the-rings-gandalf-minas-tirith-movies-wallpaper-preview.jpg
+# 350
+# For Frodo
