@@ -2,16 +2,24 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
+puts "🗑 Clearing database"
+
+Review.destroy_all
+Listing.destroy_all
+User.destroy_all
+
+puts "✅ Done cleaning!"
+
 puts "🌱 Seeding database"
 
 # User :name, :image
 # Listing :name, :image, :address, :price, :description
 # Review :description, :user_id, :listing_id
 
-joe = User.create(name: "Joe", image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
-chandy = User.create(name: "Chandy", image: "https://ca.slack-edge.com/T02MD9XTF-U029YAX6A9J-418e7f433ad5-512")
-nick = User.create(name: "Nick", image: "https://ca.slack-edge.com/T02MD9XTF-U0323QXV9JB-8c0a4338d666-512")
-phil = User.create(name: "Phil", image: "https://ca.slack-edge.com/T02MD9XTF-U01FB6HNSMN-d1127ec62276-512")
+joe = User.create(username: "joedog123", password_digest: BCrypt::Password.create("letmein"), name: "Joe", image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
+chandy = User.create(username: "chandizzy123", password_digest: BCrypt::Password.create("hunter2"), name: "Chandy", image: "https://ca.slack-edge.com/T02MD9XTF-U029YAX6A9J-418e7f433ad5-512")
+nick = User.create(username: "harper", password_digest: BCrypt::Password.create("asdfasdf"), name: "Nick", image: "https://ca.slack-edge.com/T02MD9XTF-U0323QXV9JB-8c0a4338d666-512")
+phil = User.create(username: "dwight", password_digest: BCrypt::Password.create("beets"), name: "Phil", image: "https://ca.slack-edge.com/T02MD9XTF-U01FB6HNSMN-d1127ec62276-512")
 
 l1 = Listing.create(name: "Black & White", 
                     image: "http://cdn.home-designing.com/wp-content/uploads/2017/05/overlapping-coloured-block-modern-house-exterior-design-ideas.jpg", 

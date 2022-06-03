@@ -1,6 +1,9 @@
 class ListingController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+
+    before_action :authorize
+    skip_before_action :authorize, only: [:index, :show]
 
     def index
         listings = Listing.all
@@ -31,6 +34,10 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
     private
 
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
+    
     def find_listing
         Listing.find(params[:id])
     end
