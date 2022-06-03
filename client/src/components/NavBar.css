@@ -1,20 +1,10 @@
 .header {
     display: flex;
     /* justify-content: space-between; */
-    align-items: center;
+    align-items: right;
     position: relative;
     top: 0;
     background-color: lightslategray;
     z-index: 100;
     width: 100%;
-}
-
-.header_center {
-    display: flex;
-    align-items: center;
-}
-
-.header_right {
-    display: flex;
-    align-items: center;
 }
