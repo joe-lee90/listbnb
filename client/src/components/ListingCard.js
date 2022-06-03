@@ -3,6 +3,7 @@ import'./ListingCard.css'
 
 export default function ListingCard({listing, reviews}) {
 
+  // !   Add reviews
   return (
     <div className="listingCard">
       <h2>{listing.name} - ${listing.price} night</h2>
