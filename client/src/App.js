@@ -8,7 +8,7 @@ import UserProfilePage from './pages/UserProfilePage';
 function App() {
   return (
     <div className="App">
-      <h1>listbnb 🏡 </h1>
+      <h1>🏡 listbnb</h1>
       <NavBar />
       <Switch>
       <Route path='/add-listing'><AddListingPage/> </Route>
