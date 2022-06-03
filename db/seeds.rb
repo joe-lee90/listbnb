@@ -16,10 +16,10 @@ puts "🌱 Seeding database"
 # Listing :name, :image, :address, :price, :description
 # Review :description, :user_id, :listing_id
 
-joe = User.create(username: "joedog123", password_digest: BCrypt::Password.create("letmein"), name: "Joe", image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
+joe = User.create(username: "zamboni", password_digest: BCrypt::Password.create("letmein"), name: "Joe", image: "https://ca.slack-edge.com/T02MD9XTF-U02VBJHA88P-0e543c671b27-512")
 chandy = User.create(username: "chandizzy123", password_digest: BCrypt::Password.create("hunter2"), name: "Chandy", image: "https://ca.slack-edge.com/T02MD9XTF-U029YAX6A9J-418e7f433ad5-512")
 nick = User.create(username: "harper", password_digest: BCrypt::Password.create("asdfasdf"), name: "Nick", image: "https://ca.slack-edge.com/T02MD9XTF-U0323QXV9JB-8c0a4338d666-512")
-phil = User.create(username: "dwight", password_digest: BCrypt::Password.create("beets"), name: "Phil", image: "https://ca.slack-edge.com/T02MD9XTF-U01FB6HNSMN-d1127ec62276-512")
+phil = User.create(username: "rothberry", password_digest: BCrypt::Password.create("beets"), name: "Phil", image: "https://ca.slack-edge.com/T02MD9XTF-U01FB6HNSMN-d1127ec62276-512")
 
 l1 = Listing.create(name: "Black & White", 
                     image: "http://cdn.home-designing.com/wp-content/uploads/2017/05/overlapping-coloured-block-modern-house-exterior-design-ideas.jpg", 
@@ -46,12 +46,17 @@ l4 = Listing.create(name: "Villa",
                     description: "Welcome to Bali! Enjoy your beautiful and relaxing stay in our premium villa. Don't forget to visit the Sacred Monkey Forest Sanctuary before you leave!")
                     
 r1 = Review.create(user_id: joe.id, listing_id: l2.id, description: "Very calm and serene location with beautiful views and trails. Stayed here for an extended weekend and looking forward to doing so again!")
-
 r2 = Review.create(user_id: joe.id, listing_id: l1.id, description: "Cool building, but can be a little cramped and impractical for long-term stay.")
-
 r3 = Review.create(user_id: chandy.id, listing_id: l4.id, description: "Beautiful, beautiful, beautiful!! Thank you for making my vacation so wonderful!")
-
 r4 = Review.create(user_id: nick.id, listing_id: l3.id, description: "Cozy house with a nice yard.")
+r5 = Review.create(user_id: phil.id, listing_id: l1.id, description: "Super dope.")
+r6 = Review.create(user_id: phil.id, listing_id: l2.id, description: "Cool cool cool.")
+r7 = Review.create(user_id: phil.id, listing_id: l4.id, description: "Great place for a rave")
+r8 = Review.create(user_id: nick.id, listing_id: l1.id, description: "WOW! Just wow.")
+r9 = Review.create(user_id: chandy.id, listing_id: l3.id, description: "This place is even better than the pictures!")
+
+
+
 
                     
 puts "✅ Done seeding!"

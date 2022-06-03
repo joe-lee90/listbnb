@@ -8,14 +8,16 @@ export default function UserProfilePage() {
   const [user, setUser] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:4000/user')
+    fetch('/me')
     .then(res => res.json())
     .then(data => setUser(data))
   }, [])
 
+  console.log(user)
+
   return (
     <div className="userProfilePage">
-        <h2>{user.name}</h2>
+        <h2>{user.username}</h2>
         <h2>asdfasdf</h2>
     </div>
   )

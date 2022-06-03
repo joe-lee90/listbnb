@@ -17,7 +17,7 @@ function Review({review}) {
     })
     
     return (
-    <div>Reviews:
+    <div>
         <p>{review.description} - {username}</p>
     </div>
     )

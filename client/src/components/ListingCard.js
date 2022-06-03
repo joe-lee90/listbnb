@@ -18,6 +18,7 @@ export default function ListingCard({listing, reviews}) {
       <h4>{listing.address}</h4>
       <img src={listing.image} alt={listing.name}/>
       <h5>{listing.description}</h5>
+      <h4>Reviews:</h4>
       {listingReviews}
     </div>
   )
