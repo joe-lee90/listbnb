@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1>Sojourn 🏡 </h1>
-      {<NavBar />}
+      <NavBar />
       <Route path='/'><HomePage/> </Route>
       <Route path='/add-listing'><AddListingPage/> </Route>
       <Route path='/user-profile'><UserProfilePage/> </Route>

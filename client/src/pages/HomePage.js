@@ -7,7 +7,7 @@ function HomePage() {
   const [listings, setListings] = useState([]) 
 
   useEffect(() => {
-    fetch('http://localhost:3000/listings')
+    fetch('/listings')
     .then(res => res.json())
     .then(data => console.log(data))
   }, [])
