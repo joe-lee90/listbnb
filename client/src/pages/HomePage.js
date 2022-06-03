@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
+import { useAuthenticatedUser } from "../App";
 import AuthForm from "../components/AuthForm";
 import ListingCard from "../components/ListingCard";
 import "./HomePage.css";
 
 // HomePage displays all available listings, maps out ListingCards
-function HomePage() {
+function HomePage({ auth }) {
   const [listings, setListings] = useState([]);
   const [reviews, setReviews] = useState([]);
+  const user = useAuthenticatedUser();
 
   useEffect(() => {
     fetch("http://localhost:4000/listing")
@@ -27,7 +29,7 @@ function HomePage() {
 
   return (
     <>
-      (user === null && <AuthForm />)
+      {user === null && <AuthForm auth={auth} />}
       <div className="homePage">{renderListings}</div>
     </>
   );

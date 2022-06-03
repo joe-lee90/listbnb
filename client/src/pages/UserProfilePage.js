@@ -9,10 +9,14 @@ export default function UserProfilePage() {
 
   console.log(user);
 
-  return (
-    <div className="userProfilePage">
-      <h2>{user.username}</h2>
-      <h2>asdfasdf</h2>
-    </div>
-  );
+  if (user) {
+    return (
+      <div className="userProfilePage">
+        <h2>Welcome, {user.name}!</h2>
+        <img alt={`Avatar for ${user.username}`} src={user.image} />
+      </div>
+    );
+  } else {
+    return <h2>You are logged out!</h2>;
+  }
 }

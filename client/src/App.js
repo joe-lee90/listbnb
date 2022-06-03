@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
@@ -16,22 +16,31 @@ export function useAuthenticatedUser() {
 function App() {
   const [user, setUser] = useState(null);
 
-  function signup(name, image, username, password, passwordConfirmation) {
+  useEffect(() => {
+    fetch("/me")
+      .then((res) => (res.ok ? res.json() : Promise.resolve(null)))
+      .then(setUser);
+  }, []);
+
+  function signup(name, imageURL, username, password, passwordConfirmation) {
     fetch(
       "/signup?" +
         new URLSearchParams({
           name,
-          image,
+          image: imageURL,
           username,
           password,
-          passwordConfirmation,
+          password_confirmation: passwordConfirmation,
         }),
       {
         method: "POST",
       }
     )
       .then((res) => res.json())
-      .then(setUser);
+      .then((data) => {
+        console.log(data);
+        setUser(data);
+      });
   }
 
   function login(username, password) {
@@ -39,7 +48,10 @@ function App() {
       method: "POST",
     })
       .then((res) => res.json())
-      .then(setUser);
+      .then((data) => {
+        console.log(data);
+        setUser(data);
+      });
   }
 
   function logout() {
